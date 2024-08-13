@@ -23,5 +23,6 @@ spec:
       valuesObject:
         host: example-dev.k8s.sikademo.com
         image: registry.sikademo.com/exa/hello-exa:master
+        containerPort: 8000
         dockerRegistry: registry.sikademo.com
         dockerRegistryAuth: b25kcmVqc2lrYTphc2RmYXNkZg==

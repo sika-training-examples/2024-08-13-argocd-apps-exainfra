@@ -5,6 +5,14 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: 1=registry.sikademo.com/exa/hello-exa:master
+    argocd-image-updater.argoproj.io/1.helm.image-spec: image
+    argocd-image-updater.argoproj.io/1.update-strategy: digest
+    argocd-image-updater.argoproj.io/1.force-update: 'true'
+    argocd-image-updater.argoproj.io/1.platforms: linux/amd64
+    # dev/hello-exa-dev = {{.Release.Namespace}}/{{.Release.Name}}-docker
+    argocd-image-updater.argoproj.io/1.pull-secret: pullsecret:dev/hello-exa-dev-docker
 spec:
   project: default
   destination:
